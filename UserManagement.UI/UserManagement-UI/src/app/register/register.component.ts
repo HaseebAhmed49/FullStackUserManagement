@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
     password:['',Validators.required]
   })
   
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(private formBuilder: FormBuilder,private userService:UserService) { }
   
     ngOnInit(): void {
     }
@@ -22,7 +23,14 @@ export class RegisterComponent implements OnInit {
   
     onSubmit()
     {
-      console.log("Clicked")
+      console.log("Register");
+     let fullname=this.registerForm.controls["fullname"].value;
+      let email=this.registerForm.controls["email"].value;
+      let password=this.registerForm.controls["password"].value;
+      // ! will ignore 
+      this.userService.register(fullname!,email!,password!).subscribe((data)=>{
+        console.log("response",data);
+      });
     }
   
 }
