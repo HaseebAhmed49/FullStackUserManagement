@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj": {}
+    "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/FullStackUserManagement/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj": {}
   },
   "projects": {
-    "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj": {
+    "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/FullStackUserManagement/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj",
+        "projectUniqueName": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/FullStackUserManagement/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj",
         "projectName": "UserManagement-WebAPI",
-        "projectPath": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj",
+        "projectPath": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/FullStackUserManagement/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj",
         "packagesPath": "/Users/haseebahmed/.nuget/packages/",
-        "outputPath": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/obj/",
+        "outputPath": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/FullStackUserManagement/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/haseebahmed/.nuget/NuGet/NuGet.Config"

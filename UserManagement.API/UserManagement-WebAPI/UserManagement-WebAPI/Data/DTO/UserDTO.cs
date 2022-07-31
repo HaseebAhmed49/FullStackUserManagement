@@ -7,6 +7,7 @@ namespace UserManagement_WebAPI.Data.DTO
         public string Email { get; set; }
         public string UserName { get; set; }
         public DateTime DateCreated { get; set; }
+        public string Token { get; set; }
 
         public UserDTO(string fullName,string email, string userName, DateTime dateCreated)
         {

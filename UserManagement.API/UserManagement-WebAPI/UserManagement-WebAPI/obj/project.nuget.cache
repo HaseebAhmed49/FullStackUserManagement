@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GpapGQ6Eqz+aipMMZqdajhNYEER5bh4bqFkrZk8MsZfOjOo0ifN/ZEqdCAiJP0xQXV2Jyy2ezZ3hQ4NzfVybcA==",
+  "dgSpecHash": "N3A2sqeyYVZrlfJLQZhL+6iqE0YkUmRfExjSoCJ3A+huhenfASQJ17h1wuHXFIqsHrpWjpil1Bf4J+nmTCVs8Q==",
   "success": true,
-  "projectFilePath": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj",
+  "projectFilePath": "/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/FullStackUserManagement/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/UserManagement-WebAPI.csproj",
   "expectedPackageFiles": [
     "/Users/haseebahmed/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/haseebahmed/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.7/microsoft.aspnetcore.authentication.jwtbearer.6.0.7.nupkg.sha512",

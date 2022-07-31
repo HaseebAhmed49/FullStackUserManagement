@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using UserManagement_WebAPI.Data.DTO;
 using UserManagement_WebAPI.Data.Entities;
 using UserManagement_WebAPI.Data.ViewModels;
@@ -21,11 +27,14 @@ namespace UserManagement_WebAPI.Controllers
 
         private readonly SignInManager<AppUser> _signInManager;
 
-        public UserController(ILogger<UserController> logger,UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        private readonly JWT _jwtConfig;
+
+        public UserController(ILogger<UserController> logger,UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,IOptions<JWT> jwtConfig)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _jwtConfig = jwtConfig.Value;
         }
 
         [HttpPost("register-user")]
@@ -56,6 +65,7 @@ namespace UserManagement_WebAPI.Controllers
             }
         }
 
+        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("get-all-users")]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -80,7 +90,10 @@ namespace UserManagement_WebAPI.Controllers
                     var result = await _signInManager.PasswordSignInAsync(loginVM.Email, loginVM.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return Ok(result);
+                        var appUser = await _userManager.FindByEmailAsync(loginVM.Email);
+                        var user = new UserDTO(appUser.FullName, appUser.Email, appUser.UserName, appUser.DateCreated);
+                        user.Token = GenerateToken(appUser);
+                        return Ok(user);
                     }
                 }
                 return BadRequest("User dont exists");
@@ -89,6 +102,25 @@ namespace UserManagement_WebAPI.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        private string GenerateToken(AppUser user)
+        {
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_jwtConfig.Key);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new System.Security.Claims.ClaimsIdentity(new[]
+                {
+                    new System.Security.Claims.Claim(JwtRegisteredClaimNames.NameId, user.Id),
+                    new System.Security.Claims.Claim(JwtRegisteredClaimNames.Email, user.Email),
+                    new System.Security.Claims.Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                }),
+                Expires = DateTime.UtcNow.AddHours(12),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = jwtTokenHandler.CreateToken(tokenDescriptor);
+            return jwtTokenHandler.WriteToken(token);
         }
 
     }
