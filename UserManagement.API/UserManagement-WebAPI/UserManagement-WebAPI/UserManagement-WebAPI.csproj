@@ -51,11 +51,13 @@
     <None Remove="Data\Entities\" />
     <None Remove="Data\ViewModels\" />
     <None Remove="Data\DTO\" />
+    <None Remove="Data\Enums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Data\Entities\" />
     <Folder Include="Data\ViewModels\" />
     <Folder Include="Data\DTO\" />
+    <Folder Include="Data\Enums\" />
   </ItemGroup>
 </Project>

@@ -38,7 +38,7 @@ namespace UserManagement_WebAPI.Controllers
         }
 
         [HttpPost("register-user")]
-        public async Task<IActionResult> RegisterUser([FromBody] RegisterUser registerUser)
+        public async Task<object> RegisterUser([FromBody] RegisterUser registerUser)
         {
             try
             {
@@ -55,19 +55,19 @@ namespace UserManagement_WebAPI.Controllers
                 var result = await _userManager.CreateAsync(user, registerUser.Password);
                 if (result.Succeeded)
                 {
-                    return StatusCode(201);
+                    return new ResponseModel(Data.Enums.ResponseCode.OK,"User has been registered",null);
                 }
                 return BadRequest(result.Errors);
             }
             catch(Exception ex)
             {
-                return BadRequest(ex.Message);
+                return new ResponseModel(Data.Enums.ResponseCode.Error, ex.Message, null);
             }
         }
 
         [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("get-all-users")]
-        public async Task<IActionResult> GetAllUsers()
+        public async Task<object> GetAllUsers()
         {
             try
             {
@@ -76,12 +76,12 @@ namespace UserManagement_WebAPI.Controllers
             }
             catch(Exception ex)
             {
-                return BadRequest(ex.Message);
+                return new ResponseModel(Data.Enums.ResponseCode.Error, ex.Message, null);
             }
         }
 
         [HttpPost("login-user")]
-        public async Task<IActionResult> LoginUser([FromBody] LoginVM loginVM)
+        public async Task<object> LoginUser([FromBody] LoginVM loginVM)
         {
             try
             {
@@ -93,14 +93,14 @@ namespace UserManagement_WebAPI.Controllers
                         var appUser = await _userManager.FindByEmailAsync(loginVM.Email);
                         var user = new UserDTO(appUser.FullName, appUser.Email, appUser.UserName, appUser.DateCreated);
                         user.Token = GenerateToken(appUser);
-                        return Ok(user);
+                        return new ResponseModel(Data.Enums.ResponseCode.OK,"", user);
                     }
                 }
                 return BadRequest("User dont exists");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return new ResponseModel(Data.Enums.ResponseCode.Error, ex.Message, null);
             }
         }
 

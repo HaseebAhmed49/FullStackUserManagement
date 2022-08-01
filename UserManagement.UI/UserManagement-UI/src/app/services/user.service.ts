@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -28,6 +28,14 @@ private readonly baseURL:string=environment.baseApiUrl;
       Password:password
     }
     return this.httpClient.post(this.baseURL+"/api/User/register-user",body);
+  }
+
+  public GetAllUser()
+  {
+    const headers=new HttpHeaders({
+      'Authorization':`Bearer ${JSON.parse(JSON.stringify(localStorage.getItem("userInfo")))?.token}`
+    });
+    return this.httpClient.get(this.baseURL+"/api/User/get-all-users",{headers:headers});
   }
 
 }

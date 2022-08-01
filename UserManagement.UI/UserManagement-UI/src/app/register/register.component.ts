@@ -24,12 +24,14 @@ export class RegisterComponent implements OnInit {
     onSubmit()
     {
       console.log("Register");
-     let fullname=this.registerForm.controls["fullname"].value;
+      let fullname=this.registerForm.controls["fullname"].value;
       let email=this.registerForm.controls["email"].value;
       let password=this.registerForm.controls["password"].value;
       // ! will ignore 
       this.userService.register(fullname!,email!,password!).subscribe((data)=>{
         console.log("response",data);
+      },error=>{
+        console.log("error",error)
       });
     }
   
