@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -7,6 +8,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./user-management.component.scss']
 })
 export class UserManagementComponent implements OnInit {
+
+  public userList:User[]=[];
 
   constructor(private userServcice:UserService) { }
 
@@ -18,7 +21,7 @@ export class UserManagementComponent implements OnInit {
   GetAllUser()
   {
     this.userServcice.GetAllUser().subscribe((data:any)=>{
-
-    })
+      this.userList=data;
+    });
   }
 }
