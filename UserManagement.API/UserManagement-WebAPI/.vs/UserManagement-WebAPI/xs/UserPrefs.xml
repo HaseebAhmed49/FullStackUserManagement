@@ -1,16 +1,15 @@
 ﻿<Properties StartupConfiguration="{0997D662-9A93-40C8-8B07-06257370DA4E}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.UserManagement-WebAPI PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/haseebahmed/Desktop/dotNet Practice/User Management with Angular/FullStackUserManagement/UserManagement.API/UserManagement-WebAPI/UserManagement-WebAPI/Controllers/UserController.cs" relfile="UserManagement-WebAPI/Controllers/UserController.cs" line="74" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="UserManagement-WebAPI/Controllers/UserController.cs">
     <Files>
       <File FileName="UserManagement-WebAPI/appsettings.json" Line="15" Column="41" />
       <File FileName="UserManagement-WebAPI/Program.cs" Line="58" Column="1" />
-      <File FileName="UserManagement-WebAPI/Controllers/UserController.cs" Line="96" Column="78" />
+      <File FileName="UserManagement-WebAPI/Controllers/UserController.cs" Line="68" Column="42" />
       <File FileName="UserManagement-WebAPI/Data/DTO/UserDTO.cs" Line="10" Column="28" />
       <File FileName="UserManagement-WebAPI/Properties/launchSettings.json" Line="17" Column="48" />
       <File FileName="UserManagement-WebAPI/Data/Entities/ResponseModel.cs" Line="13" Column="1" />
@@ -35,4 +34,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>

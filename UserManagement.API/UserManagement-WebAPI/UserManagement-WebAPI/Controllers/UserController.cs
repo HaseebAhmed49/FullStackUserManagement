@@ -65,7 +65,7 @@ namespace UserManagement_WebAPI.Controllers
             }
         }
 
-        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpGet("get-all-users")]
         public async Task<object> GetAllUsers()
         {

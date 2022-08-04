@@ -14,7 +14,7 @@ const routes: Routes = [
     component:RegisterComponent
   },
   {
-    path:'usermanagement',
+    path:'user-management',
     component:UserManagementComponent
   }
 ];

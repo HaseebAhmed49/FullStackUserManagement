@@ -29,7 +29,7 @@ public loginForm = this.formBuilder.group({
     let password=this.loginForm.controls["password"].value;
     // ! will ignore 
     this.userService.login(email!,password!).subscribe({
-      next: (data:any)=>{      
+      next: (data:any)=>{  
       if(data.ResponseCode==ResponseCode.OK)
       {
         localStorage.setItem("userInfo",JSON.stringify(data.DataSet.token));

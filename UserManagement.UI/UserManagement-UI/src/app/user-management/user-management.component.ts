@@ -20,7 +20,7 @@ export class UserManagementComponent implements OnInit {
 
   GetAllUser()
   {
-    this.userServcice.GetAllUser().subscribe((data)=>{
+     this.userServcice.GetAllUser().subscribe((data)=>{
       this.userList=data;
     });
   }
