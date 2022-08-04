@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ResponseCode } from '../enums/responseCode';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -27,15 +28,15 @@ public loginForm = this.formBuilder.group({
     let email=this.loginForm.controls["email"].value;
     let password=this.loginForm.controls["password"].value;
     // ! will ignore 
-    this.userService.login(email!,password!).subscribe((data:any)=>{
-      if(data.ResponseCode==1)
+    this.userService.login(email!,password!).subscribe({
+      next: (data:any)=>{      
+      if(data.ResponseCode==ResponseCode.OK)
       {
-        localStorage.setItem("userInfo",JSON.stringify(data.DataSet));
-        this.router.navigate(["/user-management"]);
-      }
+        localStorage.setItem("userInfo",JSON.stringify(data.DataSet.token));
+        this.router.navigate(["/usermanagement"]);
+      }      
       console.log("response",data);
-    },error=>{
-      console.log("error",error)
-    });
+    }});
+  
 }
 }
